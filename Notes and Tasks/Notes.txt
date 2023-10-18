@@ -15,3 +15,18 @@ Dev Pipeline:
 4. Github actions run tests
 5. If tests pass automatically pushes a new image to dockerhub and deployment
 6. Watchtower will automatically download and run the new image
+
+Everyones Computers:
+1. Runs Watchtower
+2. Runs docker
+3. Runs two images: the product development image and the watchtower image
+
+Goal from 10/18/2023 - 10/25/2023
+Each team will get multiple tasks
+
+1st person works on one tasks
+2nd person works on another
+3rd Person works on another
+
+When come to class combine everything
+

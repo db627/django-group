@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  myapp:
+    image: db627/is373-djangoproject
+    container_name: djangofile
+    pull_policy: always
+    restart: always
+    ports:
+      - "8090:8000" # Different port to avoid conflict with webizly
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201"
+        tag: "latest"
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+      - traefik.enable=true
+      - traefik.docker.network=traefik
+      - traefik.http.routers.mydjangoapp.rule=Host(`www.mydjangoapp.com`) 
+      - traefik.http.routers.mydjangoapp.entrypoints=https
+      - traefik.http.routers.mydjangoapp.tls=true
+      - traefik.http.routers.mydjangoapp.tls.certresolver=simple-resolver
+      - traefik.http.services.mydjangoapp.loadbalancer.server.port=8090
+
+networks:
+  traefik:
+    external: true
+  backend:
+    external: true
