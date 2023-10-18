@@ -13,3 +13,11 @@ Important Commands:
 5. docker tag <image name> db627/is373-djangoproject
 6. docker push db627/is373-djangoproject
 7. python manage.py runserver
+
+Important Notes:
+1. # myapp
+    - development folder
+2. # production
+    - folder that points to docker hub
+3. # watchtower
+    - watchtower that monitors docker hub image for changes
