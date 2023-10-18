@@ -1,0 +1,17 @@
+1. Have a development branch
+    -Shows the currents sprints work
+    -Basically the branch for each sprints
+Branches Needed:
+1. Production (Main) - main deployment
+2. Development (Dev) - development and automated testing
+3. Quality Assurance (QA) - manual testing before deployment
+
+Watchtower - constantly runs on your computer it automatically downloads and runs updated docker images
+
+Dev Pipeline:
+1. Develop Something
+2. Test it
+3. Push it to github
+4. Github actions run tests
+5. If tests pass automatically pushes a new image to dockerhub and deployment
+6. Watchtower will automatically download and run the new image
