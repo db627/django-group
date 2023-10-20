@@ -16,3 +16,13 @@
 1. Take existing dockerfile, create a docker-compose, and push to a dockerhub repo
 2. Create a second docker-compose that points to the dockerhum repo image, it needs to use watchtower, that downloads and runs the image
 3. SEtup a watchtower and add the label to 2. 
+
+10/20/203
+1. Make a github action that builds and push docker image
+2. Learn templates and Django ORM
+    - setup a master template that has nav, styling, footer on it
+    - setup child templates with content
+    - Templates: https://docs.djangoproject.com/en/4.2/topics/templates/
+    - orm: https://docs.djangoproject.com/en/4.2/topics/db/queries/ 
+    - orm: basically writes sql for you 
+
