@@ -1,7 +1,7 @@
 | Date       | Day     | Dennis     |Elizabeth|Bovan       |
 |------------|---------|------------|---------|------------|
 | 2023-10-18 | Wed     |Present|Present|Absent|
-| 2023-10-20 | Fri     |Present|Absent|Present|
+| 2023-10-20 | Fri     |Present|Present|Present|
 | 2023-10-25 | Wed     |
 | 2023-10-27 | Fri     |
 | 2023-11-01 | Wed     |
