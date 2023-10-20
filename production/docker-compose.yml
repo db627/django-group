@@ -6,8 +6,13 @@ services:
     container_name: djangofile
     pull_policy: always
     restart: always
+    networks:
+      - backend
     ports:
-      - "8090:8000" # Different port to avoid conflict with webizly
+      - "8090:8000" 
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
     logging:
       driver: gelf
       options:
@@ -15,13 +20,6 @@ services:
         tag: "latest"
     labels:
       - com.centurylinklabs.watchtower.enable=true
-      - traefik.enable=true
-      - traefik.docker.network=traefik
-      - traefik.http.routers.mydjangoapp.rule=Host(`www.mydjangoapp.com`) 
-      - traefik.http.routers.mydjangoapp.entrypoints=https
-      - traefik.http.routers.mydjangoapp.tls=true
-      - traefik.http.routers.mydjangoapp.tls.certresolver=simple-resolver
-      - traefik.http.services.mydjangoapp.loadbalancer.server.port=8090
 
 networks:
   traefik:
