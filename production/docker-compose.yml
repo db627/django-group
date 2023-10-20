@@ -6,8 +6,6 @@ services:
     container_name: djangofile
     pull_policy: always
     restart: always
-    networks:
-      - backend
     ports:
       - "8090:8000" 
     environment:

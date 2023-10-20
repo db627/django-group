@@ -1,2 +1,3 @@
 /.venv
 /app
+myapp/myapp/__pycache__
