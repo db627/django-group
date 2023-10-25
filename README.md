@@ -3,7 +3,7 @@
 Names:
 1. Dennis B
 2. Elizabeth
-3. Bavan
+3. Bovan
 
 Important Commands:
 1. pip3 install -r requirements.txt
