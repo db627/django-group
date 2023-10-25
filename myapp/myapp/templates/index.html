@@ -1,14 +1,22 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World</title>
+    {% block htmlhead %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">   
+    {% endblock htmlhead %}
 </head>
 
-<body>
-    <h1>Hello, World! Hello, World! Hello! </h1>
-</body>
+{% block content %}
 
+    <h1>Hello, World! Hello, World! Hello! Hello! </h1>
+    <p><a href="{% url 'pageone' %}">Home Page</a></p>
+
+{% endblock %}
 </html>

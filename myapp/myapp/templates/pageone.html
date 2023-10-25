@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Add additional CSS in static file -->
+    {% block htmlhead %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">   
+    {% endblock htmlhead %}
+  </head>
+  {% block content %}
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2">
+            <ul class="sidebar-nav">
+              <li><a href="{% url 'index' %}">Home Page</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-10 "></div>
+      </div>
+    </div>
+  </body>
+  {% endblock %}
+</html>

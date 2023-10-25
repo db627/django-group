@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    {% block htmlhead %}
+    {% endblock htmlhead %}
+</head>
+<body>
+    <header>
+        <h2>Django Project</h2>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <div class="navbar">
+  <a href="{% url 'index' %}">Home</a>
+  <a href="{% url 'pageone' %}">Page One</a>
+  <a href="{% url 'pagetwo' %}">Page Two</a>
+</div>
+    </footer>
+</body>
