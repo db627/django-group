@@ -30,3 +30,7 @@ Each team will get multiple tasks
 
 When come to class combine everything
 
+10/25/2023
+
+Top Down Design vs Bottom Up Design
+Top Down:  Start with user design
