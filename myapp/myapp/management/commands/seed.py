@@ -16,11 +16,15 @@ class Command(BaseCommand):
             type=int,
             help='Number of courses to create'
         )
+        parser.add_argument(
+            '--days',
+            type=int,
+            help='Number of days to create'
+        )
 
     def handle(self, *args, **kwargs):
         num_users = kwargs['users'] or 100  # Default to 100 if not specified
         num_courses = kwargs['courses'] or 50  # Default to 50 if not specified
-
         self.stdout.write('Seeding {} users...'.format(num_users))
         UserFactory.create_batch(num_users)
 

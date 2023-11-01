@@ -3,3 +3,7 @@
 myapp/myapp/__pycache__
 Notes and Tasks
 myapp/myapp/management/commands/seed_courses.py
+myapp/db.sqlite3
+myapp/myapp/management/commands/__pycache__
+myapp/myapp/management/__pycache__
+myapp/myapp/migrations
