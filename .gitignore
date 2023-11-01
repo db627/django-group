@@ -3,4 +3,3 @@
 myapp/myapp/__pycache__
 Notes and Tasks
 myapp/myapp/management/commands/seed_courses.py
-myapp/myapp/tests
