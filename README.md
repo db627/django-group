@@ -24,6 +24,19 @@ Important Commands:
     - then run docker tag <imagename> db627/is373-djangoproject
     - then run docker push db627/is373-djangoproject
 
+10. To seed
+    - python manage.py seed --users=200 --courses=80 
+    or 
+    - python manage.py seed
+11. To check
+    1. python manage.py shell
+    2. from myapp.models import User, Course
+ 	    users = User.objects.all()
+ 	    for user in users:
+            print(user.first_name, user.last_name)
+        courses = Course.objects.all()
+ 	    for course in courses:
+ 		    print(course.course_name, course.course_section)
 Important Notes:
 1. # myapp
     - development folder
