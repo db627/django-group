@@ -1,0 +1,14 @@
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Select User</button>
+</form>
+
+{% if user_form %}
+    <form method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        <button type="submit" name="update_btn">Update</button>
+        <button type="submit" name="delete_btn">Delete</button>
+    </form>
+{% endif %}

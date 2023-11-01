@@ -7,3 +7,7 @@ myapp/db.sqlite3
 myapp/myapp/management/commands/__pycache__
 myapp/myapp/management/__pycache__
 myapp/myapp/migrations
+myapp/db.sqlite3
+myapp/tests/.pytest_cache
+myapp/tests/__pycache__
+myapp/.pytest_cache
