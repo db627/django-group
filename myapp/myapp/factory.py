@@ -16,5 +16,5 @@ class CourseFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Course
     
-    course_name = factory.LazyAttribute(lambda x: fake.bs())  # e.g. "Synergized modular task-force"
-    course_section = factory.LazyAttribute(lambda x: fake.bothify(text="Section ##"))  # e.g. "Section 12"
+    course_name = factory.LazyAttribute(lambda x: fake.bs())  
+    course_section = factory.LazyAttribute(lambda x: fake.bothify(text="Section ##"))  
