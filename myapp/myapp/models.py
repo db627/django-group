@@ -14,10 +14,3 @@ class Course(models.Model):
 
     def __str__(self):
         return self.course_name
-
-class Days(models.Model):
-    day_one = models.CharField(max_length=100)
-    day_two = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.day_one
