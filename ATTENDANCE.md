@@ -6,7 +6,7 @@
 | 2023-10-27 | Fri     |Absent|Present|Absent
 | 2023-11-01 | Wed     |Present|Absent|Absent
 | 2023-11-03 | Fri     |Present|Present|Present
-| 2023-11-08 | Wed     |
+| 2023-11-08 | Wed     |Present|Present|Absent
 | 2023-11-10 | Fri     |
 | 2023-11-15 | Wed     |
 | 2023-11-17 | Fri     |
