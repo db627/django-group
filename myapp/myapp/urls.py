@@ -16,4 +16,9 @@ urlpatterns = [
     path('course/create/', views.course_create, name='course_create'),
     path('course/update/<int:pk>/', views.course_update, name='course_update'),
     path('course/delete/<int:pk>/', views.course_delete, name='course_delete'),
+    path('todo/', views.list_todo_view, name='list_todo'),
+    path('add/', views.add_todo_view, name='add_todo'),
+    path('update/<int:todo_id>/', views.update_todo_view, name='update_todo'),
+    path('delete/<int:todo_id>/', views.delete_todo_view, name='delete_todo'),
+    
 ]
