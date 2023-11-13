@@ -1,4 +1,4 @@
-Automated Data Generation with Django Factory and Faker
+#Automated Data Generation with Django Factory and Faker
 
 In the world of software development, testing is an essential phase to ensure that applications work as intended. When dealing with databases, it's often necessary to create test data for various scenarios. Manually generating this data can be time-consuming and error-prone. This is where tools like Django Factory and Faker come into play.
 
