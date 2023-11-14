@@ -6,8 +6,7 @@ The Anatomy of a Django Form
 
 Let's begin by examining a Django forms module that encapsulates forms for three models: ToDo, User, and Course.
 
-python
-Copy code
+
 # forms.py
 from django import forms
 from myapp.models import User, Course, ToDo
@@ -35,6 +34,7 @@ class CourseForm(forms.ModelForm):
 Exploring the Form Classes
 
 ToDoForm
+
 The ToDoForm class inherits from forms.ModelForm, indicating that it is designed to work with a Django model (ToDo). The Meta class within ToDoForm specifies the associated model (ToDo) and the fields to be included in the form (['todo_item']). This form is suitable for creating or updating ToDo instances, focusing solely on the todo_item field.
 
 UserForm
@@ -74,6 +74,7 @@ Copy code
   {{ form.as_p }}
   <button type="submit">Create ToDo</button>
 </form>
+
 Conclusion
 
 Django's forms module provides a robust and flexible way to handle user input in web applications. By encapsulating the logic for creating, updating, and validating data, forms simplify the development process and contribute to the creation of more user-friendly applications. The forms defined in the forms.py module showcase the versatility of Django forms, from basic model forms to custom forms with tailored field types and additional help text.
