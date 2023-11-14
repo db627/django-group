@@ -65,6 +65,7 @@ def create_todo(request):
         form = ToDoForm()
 
     return render(request, 'create_todo.html', {'form': form})
+
 And in a Django template, you can render these forms using template tags:
 
 html
