@@ -1,3 +1,6 @@
+import sys
+from pathlib import Path
+import os
 """
 Django settings for myapp project.
 
@@ -50,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+if 'test' in sys.argv:
+    MIDDLEWARE.remove('django.middleware.csrf.CsrfViewMiddleware')
 
 ROOT_URLCONF = 'myapp.urls'
 

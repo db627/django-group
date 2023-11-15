@@ -7,7 +7,6 @@ class User(models.Model):
 
     def __str__(self):
         return self.first_name
-
     
 class Course(models.Model):
     course_name = models.CharField(max_length=100)

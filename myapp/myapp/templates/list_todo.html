@@ -1,12 +1,43 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<ul>
-  {% for todo in todos %}
-    <li>{{ todo.todo_item }}
-      <a href="{% url 'update_todo' todo.pk %}">Update</a>
-      <a href="{% url 'delete_todo' todo.pk %}">Delete</a>
-    </li>
-  {% endfor %}
+<style>
+    .todo-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    .todo-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        padding: 8px;
+    }
+    .todo-list li:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    .todo-list li:hover {
+        background-color: #ddd;
+    }
+    .todo-actions {
+        display: flex;
+        gap: 10px;
+    }
+</style>
+
+<ul class="todo-list">
+    {% for todo in todos %}
+        <li>
+            <span>{{ todo.todo_item }}</span>
+            <div class="todo-actions">
+                <a href="{% url 'update_todo' todo.pk %}">Update</a>
+                <a href="{% url 'delete_todo' todo.pk %}">Delete</a>
+            </div>
+        </li>
+    {% endfor %}
 </ul>
+
 <a href="{% url 'add_todo' %}">Add New Todo</a>
 {% endblock %}

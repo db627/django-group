@@ -123,6 +123,7 @@ def update_todo_view(request, todo_id):
 def delete_todo_view(request, todo_id):
     ToDo.objects.get(pk=todo_id).delete()
     return redirect('list_todo')
+
 def list_todo_view(request):
     todos = ToDo.objects.all()
     return render(request, 'list_todo.html', {'todos': todos})
