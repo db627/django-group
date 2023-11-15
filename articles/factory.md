@@ -1,18 +1,57 @@
-Automated Data Generation with Django Factory and Faker
+Title: 
+Tutorial on Migration, Models, Factory, seeding with fake data and testing the Data Base.
+Author: Elizabeth Oluwasanmi, Dennis Boguslavskiy, Bovan
 
-In the world of software development, testing is an essential phase to ensure that applications work as intended. When dealing with databases, it's often necessary to create test data for various scenarios. Manually generating this data can be time-consuming and error prone. This is where tools like Django Factory and Faker come into play.
+Introduction to Django
 
-Introduction
+Django, a high-level Python web framework, is renowned for its "batteries-included" philosophy, providing developers with a robust set of tools for building web applications quickly and efficiently. In this article, we'll guide you through the process of creating a Django application from the ground up. We'll cover everything from setting up models to creating migrations, generating fake data with Factory Boy, and testing the database.
 
-Django Factory and Faker are Python libraries commonly used in Django projects to streamline the process of creating test data. In this article, we'll explore a code snippet that demonstrates the usage of these libraries to create factories for Django models.
+Setting the Stage: The Model
 
-The Code
+In Django, a model represents the structure of a database table. Let's consider a simple example: a to-do application. In your models.py file, define a ToDo model:
 
-Let's dive into the provided code snippet:
+Copy Code;
+
+from django.db import models
+
+class User(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField(default='example@example.com', max_length=100)
+
+    def __str__(self):
+        return self.first_name
+
+    
+class Course(models.Model):
+    course_name = models.CharField(max_length=100)
+    course_section = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.course_name
+
+class ToDo(models.Model):
+    todo_item = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.todo_item
+
+Migrations: Bringing Models to Life
+
+Django uses migrations to manage database schema changes. After defining your model, run the following commands to create an initial migration and apply it to the database:
+
+python manage.py makemigrations
+python manage.py migrate
+
+This process ensures that your database is synchronized with your model.
+
+Factory 
+Factory boy is a fantastic library for generating test data. Let's create a factory for our ToDo model:
 
 import factory
 from faker import Faker
 from myapp.models import User, Course, ToDo
+
 
 fake = Faker()
 
@@ -37,25 +76,54 @@ class ToDoFactory(factory.django.DjangoModelFactory):
     
     todo_item = factory.LazyAttribute(lambda x: fake.bs())
 
-Description
+Note: This ToDo Factory generates instances of the ToDo model with fake text for the todo_item field.
 
-This code defines three factory classes (UserFactory, CourseFactory, and ToDoFactory), each responsible for creating instances of the corresponding Django model (User, Course, and ToDo). Let's break down the key components of this code:
+Seeding the Database with Fake Data
 
-Faker Integration: The Faker library is utilized to generate realistic-looking fake data. For example, fake.first_name() generates a random first name, fake.bs() creates a business buzzword, and fake.bothify(text="Section ##") generates a string with a placeholder for a two-digit number.
-Factory Classes: Each factory class inherits from factory.django.DjangoModelFactory, indicating that it is designed to work with Django models. The Meta class within each factory specifies the Django model associated with that factory.
-LazyAttribute Usage: The factory.LazyAttribute decorator is employed to generate attribute values lazily. This ensures that the data is generated only when needed, allowing for dynamic content in each instance.
-How to Use These Factories
+Now, let's use our factory to seed the database with fake to-do items. In a Django management command or script, you can do the following:
 
-Once these factories are defined, they can be used in your tests or scripts to create instances of your Django models with realistic and diverse data. Here's a quick example of how you might use these factories:
+# seed_data.py
+from myapp.factories import ToDoFactory
 
-python
+def seed_database():
+    for _ in range(10):  # Create 10 fake to-do items
+        ToDoFactory()
 
-# In your test or script
-user_instance = UserFactory()
-course_instance = CourseFactory()
-todo_instance = ToDoFactory()
-By using these factory instances, you can easily create test data for your Django models without the need to manually populate each field.
+Testing the Database
 
-Conclusion
+Testing is a crucial aspect of development, and Django makes it easy to write tests for your database. Create a tests.py file in your app directory and add the following:
 
-Automated data generation is a powerful tool in the developer's toolkit, especially when it comes to testing. The combination of Django Factory and Faker simplifies the process of creating diverse and realistic test data for your Django applications. By incorporating these libraries into your testing workflow, you can save time, reduce errors, and ensure that your applications are thoroughly tested with a variety of data scenarios.
+# tests.py
+from django.test import TestCase
+from myapp.models import ToDo
+
+class ToDoModelTest(TestCase):
+    def test_todo_creation(self):
+        todo_item = 'Test ToDo Item'
+        todo = ToDo.objects.create(todo_item=todo_item)
+        self.assertEqual(todo.todo_item, todo_item)
+
+Testing: 
+•	Clone the repository .
+•	Open terminal and run,
+o	Cd myapp
+o	Pip install -r requirements.txt
+In the same terminal to migrate database run,
+o	Python manage.py make migrations myapp
+o	Python manage.py migrate
+To seed database run
+o	Python manage.py seed
+To test the database and CRUD operations  run, 
+o	pytest
+
+
+Conclusion: 
+
+In this journey through Django development, we've covered the creation of a model, the use of migrations to manage database changes, the integration of Factory Boy for generating test data, and the testing of our database functionality.
+Django empowers developers to build robust web applications with ease, offering a seamless workflow from defining models to testing database functionality. Whether you're creating a to-do app or a more complex project, Django's comprehensive toolkit provides the foundation for efficient and reliable development.
+
+ The article needs to explain the overall workflow of starting to program a backend with a database and how the concepts in the tutorial relate to each other.  
+The tutorial is required to have a step-by-step guide for a user to implement the process.  
+You should have a starting project with instructions to setup the install for the tutorial and a branch that has the completed tutorial to go with the article.
+
+
