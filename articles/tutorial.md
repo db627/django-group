@@ -1,6 +1,6 @@
-Title: 
+
 # Tutorial on Migration, Models, Factory, seeding with fake data and testing the Data Base.
-## Author: Elizabeth Oluwasanmi, Dennis Boguslavskiy, Bovan
+### Author: Elizabeth Oluwasanmi, Dennis Boguslavskiy, Bovan
 
 ### Introduction to Django
 
