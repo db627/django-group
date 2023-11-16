@@ -6,6 +6,23 @@
 
 Django, a high-level Python web framework, is renowned for its "batteries-included" philosophy, providing developers with a robust set of tools for building web applications quickly and efficiently. In this article, we'll guide you through the process of creating a Django application from the ground up. We'll cover everything from setting up models to creating migrations, generating fake data with Factory Boy, and testing the database.
 
+### Setting Up Django
+
+Before diving into models and migrations, ensure that Django is installed in your Python environment. 
+1. If not, install it using:
+```
+pip install django
+````
+
+2. To start up a django application called myapp run:
+```
+django-admin startproject myapp
+```
+3. Then CD into the project by running:
+```
+cd myapp
+```
+
 ### Setting the Stage: The Model
 
 In Django, a model represents the structure of a database table. Let's consider a simple example: a to-do application. In your models.py file, define a ToDo model:
