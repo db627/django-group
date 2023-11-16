@@ -56,9 +56,10 @@ class ToDo(models.Model):  #Create a ToDo model
 Migrations: Bringing Models to Life
 
 Django uses migrations to manage database schema changes. After defining your model, run the following commands to create an initial migration and apply it to the database:
-
-python manage.py makemigrations
+```
+python manage.py makemigrations myapp
 python manage.py migrate
+```
 
 This process ensures that your database is synchronized with your model.
 
