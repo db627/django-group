@@ -11,13 +11,14 @@ Django, a high-level Python web framework, is renowned for its "batteries-includ
 In Django, a model represents the structure of a database table. Let's consider a simple example: a to-do application. In your models.py file, define a ToDo model:
 
 Copy Code;
-
+```
 from django.db import models 
 
 class User(models.Model): 
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100) 
     email = models.EmailField(default='example@example.com', max_length=100) 
+    
     def __str__(self):
         return self.first_name
 
@@ -34,7 +35,7 @@ class ToDo(models.Model):
     
     def __str__(self):
         return self.todo_item
-
+```
 Migrations: Bringing Models to Life
 
 Django uses migrations to manage database schema changes. After defining your model, run the following commands to create an initial migration and apply it to the database:
