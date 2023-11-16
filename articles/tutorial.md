@@ -10,7 +10,7 @@ Django, a high-level Python web framework, is renowned for its "batteries-includ
 
 In Django, a model represents the structure of a database table. Let's consider a simple example: a to-do application. In your models.py file, define a ToDo model:
 
-Copy Code;
+Copy Code:
 ```
 from django.db import models #import django models
 
@@ -106,16 +106,16 @@ class ToDoModelTest(TestCase):
         self.assertEqual(todo.todo_item, todo_item)
 ```
 Testing: 
-•	Clone the repository .
-•	Open terminal and run,
+1. Clone the repository .
+2. Open terminal and run,
     o	Cd myapp
     o	Pip install -r requirements.txt
-In the same terminal to migrate database run,
+3. In the same terminal to migrate database run,
     o	Python manage.py make migrations myapp
     o	Python manage.py migrate
-To seed database run
+4. To seed database run
     o	Python manage.py seed
-To test the database and CRUD operations  run, 
+5. To test the database and CRUD operations  run, 
     o	pytest
 
 
