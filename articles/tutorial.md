@@ -12,26 +12,26 @@ In Django, a model represents the structure of a database table. Let's consider 
 
 Copy Code;
 ```
-from django.db import models 
+from django.db import models #import django models
 
-class User(models.Model): 
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100) 
-    email = models.EmailField(default='example@example.com', max_length=100) 
+class User(models.Model): #create a User model
+    first_name = models.CharField(max_length=100) #Create a first Name field
+    last_name = models.CharField(max_length=100) #Create a last name field
+    email = models.EmailField(default='example@example.com', max_length=100) #Create an email field
     
     def __str__(self):
         return self.first_name
 
     
-class Course(models.Model): 
-    course_name = models.CharField(max_length=100)
-    course_section = models.CharField(max_length=100)
+class Course(models.Model): #Create a class model
+    course_name = models.CharField(max_length=100) #Create a course name field
+    course_section = models.CharField(max_length=100) #Create a course section field
 
     def __str__(self):
         return self.course_name
 
-class ToDo(models.Model): 
-    todo_item = models.CharField(max_length=100) 
+class ToDo(models.Model):  #Create a ToDo model
+    todo_item = models.CharField(max_length=100) #Create a todo field
     
     def __str__(self):
         return self.todo_item
@@ -47,7 +47,7 @@ This process ensures that your database is synchronized with your model.
 
 Factory 
 Factory boy is a fantastic library for generating test data. Let's create a factory for our ToDo model:
-
+```
 import factory
 from faker import Faker
 from myapp.models import User, Course, ToDo
@@ -75,7 +75,7 @@ class ToDoFactory(factory.django.DjangoModelFactory):
         model = ToDo
     
     todo_item = factory.LazyAttribute(lambda x: fake.bs())
-
+```
 Note: This ToDo Factory generates instances of the ToDo model with fake text for the todo_item field.
 
 Seeding the Database with Fake Data
@@ -83,17 +83,19 @@ Seeding the Database with Fake Data
 Now, let's use our factory to seed the database with fake to-do items. In a Django management command or script, you can do the following:
 
 # seed_data.py
+```
 from myapp.factories import ToDoFactory
 
 def seed_database():
     for _ in range(10):  # Create 10 fake to-do items
         ToDoFactory()
-
+```
 Testing the Database
 
 Testing is a crucial aspect of development, and Django makes it easy to write tests for your database. Create a tests.py file in your app directory and add the following:
 
 # tests.py
+```
 from django.test import TestCase
 from myapp.models import ToDo
 
@@ -102,7 +104,7 @@ class ToDoModelTest(TestCase):
         todo_item = 'Test ToDo Item'
         todo = ToDo.objects.create(todo_item=todo_item)
         self.assertEqual(todo.todo_item, todo_item)
-
+```
 Testing: 
 •	Clone the repository .
 •	Open terminal and run,
