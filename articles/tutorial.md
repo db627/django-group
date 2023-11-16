@@ -3,7 +3,7 @@
 ### Author: Elizabeth Oluwasanmi, Dennis Boguslavskiy, Bovan
 
 ### Introduction to Django
-
+## To follow along use this repository: https://github.com/db627/django-tutorial
 Django, a high-level Python web framework, is renowned for its "batteries-included" philosophy, providing developers with a robust set of tools for building web applications quickly and efficiently. In this article, we'll guide you through the process of creating a Django application from the ground up. We'll cover everything from setting up models to creating migrations, generating fake data with Factory Boy, and testing the database.
 
 ### Setting Up Django
