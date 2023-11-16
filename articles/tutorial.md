@@ -108,15 +108,23 @@ class ToDoModelTest(TestCase):
 Testing: 
 1. Clone the repository .
 2. Open terminal and run,
-    a. Cd myapp
-    b. Pip install -r requirements.txt
+    ```
+    cd myapp
+    pip install -r requirements.txt
+    ```
 3. In the same terminal to migrate database run,
-    a. Python manage.py make migrations myapp
-    b. Python manage.py migrate
-4. To seed database run
-    a. Python manage.py seed
-5. To test the database and CRUD operations  run, 
-    b. pytest
+   ```
+    Python manage.py make migrations myapp
+    Python manage.py migrate
+   ```
+5. To seed database run
+   ```
+    Python manage.py seed
+   ```
+6. To test the database and CRUD operations  run, 
+    ```
+    pytest
+    ```
 
 
 Conclusion: 
