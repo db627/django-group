@@ -39,20 +39,6 @@ class User(models.Model): #create a User model
     
     def __str__(self):
         return self.first_name
-
-    
-class Course(models.Model): #Create a class model
-    course_name = models.CharField(max_length=100) #Create a course name field
-    course_section = models.CharField(max_length=100) #Create a course section field
-
-    def __str__(self):
-        return self.course_name
-
-class ToDo(models.Model):  #Create a ToDo model
-    todo_item = models.CharField(max_length=100) #Create a todo field
-    
-    def __str__(self):
-        return self.todo_item
 ```
 Migrations: Bringing Models to Life
 
@@ -69,7 +55,7 @@ Factory boy is a fantastic library for generating test data. Let's create a fact
 ```
 import factory
 from faker import Faker
-from myapp.models import User, Course, ToDo
+from myapp.models import User
 
 
 fake = Faker()
@@ -82,18 +68,7 @@ class UserFactory(factory.django.DjangoModelFactory):
     last_name = factory.LazyAttribute(lambda x: fake.last_name())
     email = factory.LazyAttribute(lambda x: fake.email())
 
-class CourseFactory(factory.django.DjangoModelFactory):
-    class Meta:
-        model = Course
-    
-    course_name = factory.LazyAttribute(lambda x: fake.bs())  
-    course_section = factory.LazyAttribute(lambda x: fake.bothify(text="Section ##"))  
 
-class ToDoFactory(factory.django.DjangoModelFactory):
-    class Meta:
-        model = ToDo
-    
-    todo_item = factory.LazyAttribute(lambda x: fake.bs())
 ```
 Note: This ToDo Factory generates instances of the ToDo model with fake text for the todo_item field.
 
@@ -103,11 +78,26 @@ Now, let's use our factory to seed the database with fake to-do items. In a Djan
 
 # seed_data.py
 ```
-from myapp.factories import ToDoFactory
+from django.core.management.base import BaseCommand
+from myapp.factories import UserFactory
+class Command(BaseCommand):
+    help = 'Seeds the database with User and Course data'
 
-def seed_database():
-    for _ in range(10):  # Create 10 fake to-do items
-        ToDoFactory()
+    def add_arguments(self, parser):
+        parser.add_argument(
+            '--users',
+            type=int,
+            help='Number of users to create'
+        )
+
+
+    def handle(self, *args, **kwargs):
+        num_users = kwargs['users'] or 100  # Default to 100 if not specified
+    
+        self.stdout.write('Seeding {} users...'.format(num_users))
+        UserFactory.create_batch(num_users)
+
+        self.stdout.write(self.style.SUCCESS('Database seeding complete!'))
 ```
 Testing the Database
 
