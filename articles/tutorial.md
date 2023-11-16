@@ -2,36 +2,36 @@ Title:
 # Tutorial on Migration, Models, Factory, seeding with fake data and testing the Data Base.
 ## Author: Elizabeth Oluwasanmi, Dennis Boguslavskiy, Bovan
 
-Introduction to Django
+### Introduction to Django
 
 Django, a high-level Python web framework, is renowned for its "batteries-included" philosophy, providing developers with a robust set of tools for building web applications quickly and efficiently. In this article, we'll guide you through the process of creating a Django application from the ground up. We'll cover everything from setting up models to creating migrations, generating fake data with Factory Boy, and testing the database.
 
-Setting the Stage: The Model
+### Setting the Stage: The Model
 
 In Django, a model represents the structure of a database table. Let's consider a simple example: a to-do application. In your models.py file, define a ToDo model:
 
 Copy Code;
 
-from django.db import models
+from django.db import models #Import Django Models 
 
-class User(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    email = models.EmailField(default='example@example.com', max_length=100)
+class User(models.Model): #Create a user model
+    first_name = models.CharField(max_length=100) #First Name field in Table
+    last_name = models.CharField(max_length=100) #Last Name field in Table
+    email = models.EmailField(default='example@example.com', max_length=100) #Email
 
     def __str__(self):
         return self.first_name
 
     
-class Course(models.Model):
+class Course(models.Model): #Create a course model
     course_name = models.CharField(max_length=100)
     course_section = models.CharField(max_length=100)
 
     def __str__(self):
         return self.course_name
 
-class ToDo(models.Model):
-    todo_item = models.CharField(max_length=100)
+class ToDo(models.Model): #Create a todo model
+    todo_item = models.CharField(max_length=100) #Add a todo item field to the table
     
     def __str__(self):
         return self.todo_item
