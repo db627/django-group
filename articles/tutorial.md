@@ -9,18 +9,19 @@ Django, a high-level Python web framework, is renowned for its "batteries-includ
 ### Setting Up Django
 
 Before diving into models and migrations, ensure that Django is installed in your Python environment. 
-1. If not, install it using:
+1. Clone The Repository
+3. Setup a virtual enviornment
 ```
-pip install django
-````
-
-2. To start up a django application called myapp run:
+python3 -m venv .venv
+source .venv/bin/activate
 ```
-django-admin startproject myapp
-```
-3. Then CD into the project by running:
+4. CD into the myapp folder
 ```
 cd myapp
+```
+4. Install all necessary requirements
+```
+pip3 install -r requirements.txt
 ```
 
 ### Setting the Stage: The Model
