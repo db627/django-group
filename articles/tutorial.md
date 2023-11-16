@@ -12,26 +12,25 @@ In Django, a model represents the structure of a database table. Let's consider 
 
 Copy Code;
 
-from django.db import models #Import Django Models 
+from django.db import models 
 
-class User(models.Model): #Create a user model
-    first_name = models.CharField(max_length=100) #First Name field in Table
-    last_name = models.CharField(max_length=100) #Last Name field in Table
-    email = models.EmailField(default='example@example.com', max_length=100) #Email
-
+class User(models.Model): 
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100) 
+    email = models.EmailField(default='example@example.com', max_length=100) 
     def __str__(self):
         return self.first_name
 
     
-class Course(models.Model): #Create a course model
+class Course(models.Model): 
     course_name = models.CharField(max_length=100)
     course_section = models.CharField(max_length=100)
 
     def __str__(self):
         return self.course_name
 
-class ToDo(models.Model): #Create a todo model
-    todo_item = models.CharField(max_length=100) #Add a todo item field to the table
+class ToDo(models.Model): 
+    todo_item = models.CharField(max_length=100) 
     
     def __str__(self):
         return self.todo_item
