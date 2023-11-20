@@ -54,21 +54,24 @@ def todo_view(request):
         if 'add' in request.POST:
             form = ToDoForm(request.POST)
             if form.is_valid():
-                form.save()
+                todo = form.save(commit=False)
+                todo.user = request.user
+                todo.save()
         elif 'update' in request.POST:
-            updated_item = ToDo.objects.get(pk=request.POST.get('todo_id'))
+            todo_id = request.POST.get('todo_id')
+            updated_item = ToDo.objects.get(pk=todo_id, user=request.user)
             form = ToDoForm(request.POST, instance=updated_item)
             if form.is_valid():
                 form.save()
         elif 'delete' in request.POST:
             todo_id = request.POST.get('todo_id')
-            ToDo.objects.get(pk=todo_id).delete()
-        return redirect('todo_view')
-    
+            ToDo.objects.filter(pk=todo_id, user=request.user).delete()
+        return redirect('list_todo')
+
     else:
-        todos = ToDo.objects.all()
+        todos = ToDo.objects.filter(user=request.user)
         form = ToDoForm()
-    
+
     return render(request, 'todo.html', {'form': form, 'todos': todos})
 
 @login_required
@@ -76,15 +79,18 @@ def add_todo_view(request):
     if request.method == 'POST':
         form = ToDoForm(request.POST)
         if form.is_valid():
-            form.save()
+            todo = form.save(commit=False)
+            todo.user = request.user  # Set the user
+            todo.save()
             return redirect('list_todo')
     else:
         form = ToDoForm()
     return render(request, 'add_todo.html', {'form': form})
 
+
 @login_required
 def update_todo_view(request, todo_id):
-    todo_item = ToDo.objects.get(pk=todo_id)
+    todo_item = ToDo.objects.get(pk=todo_id, user=request.user)
     if request.method == 'POST':
         form = ToDoForm(request.POST, instance=todo_item)
         if form.is_valid():
@@ -96,13 +102,15 @@ def update_todo_view(request, todo_id):
 
 @login_required
 def delete_todo_view(request, todo_id):
-    ToDo.objects.get(pk=todo_id).delete()
+    ToDo.objects.filter(pk=todo_id, user=request.user).delete()
     return redirect('list_todo')
+
 
 @login_required
 def list_todo_view(request):
-    todos = ToDo.objects.all()
+    todos = ToDo.objects.filter(user=request.user)
     return render(request, 'list_todo.html', {'todos': todos})
+
 
 def register(request):
     if request.method == 'POST':
