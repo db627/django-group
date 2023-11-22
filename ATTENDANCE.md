@@ -9,8 +9,8 @@
 | 2023-11-08 | Wed     |Present|Present|Absent
 | 2023-11-10 | Fri     |Present|Present|Absent
 | 2023-11-15 | Wed     |Absent|Absent|
-| 2023-11-17 | Fri     |
-| 2023-11-22 | Wed     |
+| 2023-11-17 | Fri     |Present|Present|Present
+| 2023-11-22 | Wed     |Present|Absent|Absent|
 | 2023-11-24 | Fri     |
 | 2023-11-29 | Wed     |
 | 2023-12-01 | Fri     |
