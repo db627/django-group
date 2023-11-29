@@ -8,14 +8,18 @@
     <header>
         <h2>Django Project</h2>
     </header>
+    <div class="navbar">
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'register' %}">Register</a>
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'pageone' %}">Page One</a>
+        <a href="{% url 'pagetwo' %}">Page Two</a>
+        <a href="{% url 'list_todo' %}">To Do</a>
+      </div>
     {% block content %}
     {% endblock %}
-    <footer>
-        <div class="navbar">
-  <a href="{% url 'index' %}">Home</a>
-  <a href="{% url 'pageone' %}">Page One</a>
-  <a href="{% url 'pagetwo' %}">Page Two</a>
-  <a href="{% url 'list_todo' %}">To Do</a>
-</div>
+    <footer style="">
+        <p>&copy; Django Group</p>
     </footer>
 </body>
