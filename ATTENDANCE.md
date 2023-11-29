@@ -12,7 +12,7 @@
 | 2023-11-17 | Fri     |Present|Present|Present
 | 2023-11-22 | Wed     |Present|Present|Absent|
 | 2023-11-24 | Fri     |---|---|---|
-| 2023-11-29 | Wed     |
+| 2023-11-29 | Wed     |Present|Absent|Present|
 | 2023-12-01 | Fri     |
 | 2023-12-06 | Wed     |
 | 2023-12-08 | Fri     |
